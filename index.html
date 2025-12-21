@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Chai Wala | Cinema English</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --chai-saffron: #f59e0b;
+        --midnight: #020617;
+      }
+      * {
+        -webkit-tap-highlight-color: transparent;
+        box-sizing: border-box;
+        user-select: none;
+        scrollbar-width: none;
+      }
+      *::-webkit-scrollbar { display: none; }
+      
+      body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        background-color: var(--midnight);
+        color: #f8fafc;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        height: 100dvh;
+        width: 100vw;
+        position: fixed;
+      }
+      #root { height: 100dvh; width: 100vw; display: flex; flex-direction: column; }
+      .font-serif { font-family: 'Playfair Display', serif; }
+      .font-inter { font-family: 'Inter', sans-serif; }
+      
+      .iris-in {
+        animation: fade-in-scale 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+      @keyframes fade-in-scale {
+        from { opacity: 0; transform: scale(1.05); }
+        to { opacity: 1; transform: scale(1); }
+      }
+
+      .snap-container {
+        scroll-snap-type: y mandatory;
+        overflow-y: auto;
+        height: 100%;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+      }
+      .snap-item {
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+        height: 100dvh;
+        width: 100%;
+        flex-shrink: 0;
+      }
+
+      /* Character Animations */
+      @keyframes buddy-float {
+        0%, 100% { transform: translateY(0) rotate(0); }
+        50% { transform: translateY(-8px) rotate(2deg); }
+      }
+      .animate-buddy-idle { animation: buddy-float 3s ease-in-out infinite; }
+      
+      @keyframes buddy-shake {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-5px) rotate(-5deg); }
+        75% { transform: translateX(5px) rotate(5deg); }
+      }
+      .animate-buddy-disapprove { animation: buddy-shake 0.3s ease-in-out infinite; }
+
+      @keyframes buddy-dance {
+        0%, 100% { transform: scale(1) translateY(0) rotate(0deg); }
+        20% { transform: scale(1.1) translateY(-15px) rotate(10deg); }
+        40% { transform: scale(1) translateY(0) rotate(-10deg); }
+        60% { transform: scale(1.1) translateY(-15px) rotate(10deg); }
+        80% { transform: scale(1) translateY(0) rotate(-10deg); }
+      }
+      .animate-buddy-celebrate { animation: buddy-dance 0.8s cubic-bezier(0.45, 0, 0.55, 1) infinite; }
+
+      @keyframes emoji-dance {
+        0% { transform: translateY(110vh) rotate(0deg) scale(0.5); opacity: 0; }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { transform: translateY(-20vh) rotate(360deg) scale(1.5); opacity: 0; }
+      }
+      .animate-emoji-dance { 
+        position: absolute;
+        bottom: 0;
+        animation-name: emoji-dance;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+      }
+
+      @keyframes bounce-subtle {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+      }
+      .animate-bounce-subtle { animation: bounce-subtle 2s ease-in-out infinite; }
+
+      .text-shadow-glow {
+        text-shadow: 0 0 25px rgba(245, 158, 11, 0.5);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
